@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import db from "./config/dbconnect.js";
 import routes from "./routes/index.js";
 
@@ -10,6 +11,7 @@ db.once('open', () => {
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 
 routes(app)
 
